@@ -27,4 +27,4 @@ device/nokia/normandy/recovery/sbin/rmt_oeminfo_recovery:/recovery/root/sbin/rmt
 device/nokia/normandy/recovery/sbin/linker:/recovery/root/sbin/linker \
 device/nokia/normandy/recovery/sbin/charge.sh:/recovery/root/sbin/charge.sh \
 device/nokia/normandy/recovery/tp/1191601.img:root/tp/1191601.img \
-device/nokia/normandy/recovery/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
+#device/nokia/normandy/recovery/init.recovery.qcom.rc:root/init.recovery.qcom.rc \
