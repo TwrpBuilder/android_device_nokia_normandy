@@ -1,0 +1,31 @@
+language: java
+jdk:
+  - openjdk7
+sudo: required
+before_script:
+- cd $HOME
+- sudo apt-get install -y lzop git-core gnupg flex bison gperf build-essential 
+  zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 
+  lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache 
+  libgl1-mesa-dev libxml2-utils xsltproc unzip maven schedtool &> /dev/null
+- git clone https://sumitrajdev@bitbucket.org/sumitrajdev/twrp-5.1.1.git $HOME/tmp
+- mv $HOME/tmp/twrp-5.1.1.tar.xz $HOME/twrp.tar.xz
+- rm -rf tmp
+- wget https://github.com/TwrpBuilder/twrp-5.1.1-source/releases/download/initial/twrp-5.1.1.tar.xz
+  -O $HOME/twrp.tar.xz
+- tar -xvf twrp.tar.xz &> log
+
+script:
+- cd $HOME/twrp
+- git clone https://github.ssscom/TwrpBuilder/android_device_nokia_normandy.git &> /dev/null
+- rm -rf bootable/recovery
+- git clone https://github.com/omnirom/android_bootable_recovery.git bootable/recovery &> /dev/null
+- source build/envsetup.sh ; lunch omni_normandy-eng
+- make -j4 bootimage
+- make -j4 recoveryimage &> log
+- mkazip_normandy
+- curl --upload-file "./log" "https://transfer.sh/log"
+- cd out/target/product/normandy/
+- curl --upload-file "./recovery.img" "https://transfer.sh/recovery.img"
+- echo "####Made Zip#####"
+- curl --upload-file "./twrp-$(date +%Y%m%d)-3.0.3-UNOFFICIAL-normandy.zip" "https://transfer.sh/twrp-$(date +%Y%m%d)-3.0.3-UNOFFICIAL-normandy.zip"
