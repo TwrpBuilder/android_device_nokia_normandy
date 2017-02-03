@@ -16,7 +16,7 @@ before_script:
 - tar -xvf twrp.tar.xz &> log
 script:
 - cd $HOME/twrp
-- git clone https://github.com/TwrpBuilder/android_device_nokia_normandy.git &>
+- git clone https://github.com/TwrpBuilder/android_device_nokia_normandy.git device/nokia/normandy &>
   /dev/null
 - rm -rf bootable/recovery
 - git clone https://github.com/omnirom/android_bootable_recovery.git bootable/recovery
