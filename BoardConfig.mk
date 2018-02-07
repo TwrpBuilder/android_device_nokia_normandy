@@ -52,10 +52,8 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_NO_CPU_TEMP := true
-#TARGET_KERNEL_SOURCE := kernel/nokia/normandy
-#TARGET_KERNEL_CONFIG := delos_defconfig
+BOARD_HAS_NO_REAL_SDCARD := true
 TARGET_PREBUILT_RECOVERY_KERNEL := device/nokia/normandy/zImage
-#TARGET_RECOVERY_INITRC := device/nokia/normandy/init.rc
 TARGET_RECOVERY_FSTAB := device/nokia/normandy/recovery.fstab
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -81,5 +79,4 @@ BOARD_USE_CUSTOM_RECOVERY_FONT:= \"roboto_10x18.h\"
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/msm_fb.524288/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
-#TW_BOARD_CUSTOM_GRAPHICS := ../../../device/nokia/normandy/recovery/graphics.c
 
