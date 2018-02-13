@@ -30,4 +30,4 @@ deploy:
   on:
     tags: false
     repo: TwrpBuilder/android_device_nokia_normandy
-    branch: travis
+    branch: master
